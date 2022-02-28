@@ -37,10 +37,15 @@ def welcome():
     return (
         f"Welcome to my Hawaii Weather API!<br/>"
         f"Available Routes:<br/>"
+        f"Follow the link below to see the precipitation amounts between August 2016 and August 2017.<br/>"
         f"/api/v1.0/precipitation<br/>"
+        f"Follow the link below to see the weather stations in the data set.<br/>"
         f"/api/v1.0/stations<br/>"
+        f"Follow the link below to see the observed temperature (Fahrenheit) between August 2016 and August 2017.<br/>"
         f"/api/v1.0/tobs<br/>"
+        f"Follow the link below and append the start date for your time period of interest (yyyy-mm-dd).<br/>"
         f"/api/v1.0/<start><br/>"
+        f"Follow the link below and append the start and end dates for your time period of interest (yyyy-mm-dd).<br/>"
         f"/api/v1.0/<start><end><br/>"
         )
 
@@ -87,11 +92,6 @@ def stations():
 def temps():
      # Create the session (link) from Python to the DB
     session = Session(engine)
-
-    # Query the most active station
-    #most_active = session.query(Measurement.station, func.count(Measurement.date)).\
-       # group_by(Measurement.station).\
-        #order_by(func.count(Measurement.date).desc()).first()
 
     #Query the dates for the past year
     year_dates = dt.date(2017, 8, 23) - dt.timedelta(days=365)
